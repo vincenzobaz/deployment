@@ -10,6 +10,9 @@ services:
     ports:
       - 80:80
       - 443:443
+    volumes:
+      - /etc/ssl/dhparams:/etc/ssl/dhparams
+      - /etc/letsencrypt:/etc/letsencrypt
     restart: on-failure:5
 
   game-creator:
@@ -46,7 +49,7 @@ services:
       - FOWNER
       - SYS_CHROOT
     restart: on-failure:5
-  
+
   mongo-seed:
     image: reminisceme/reverse-geoloc:latest
     volumes_from:
