@@ -1,2 +1,2 @@
 # Deployment
-All the rools and documentation needed to deploy reminisce.me.
+All the tools and documentation needed to deploy reminisce.me.
