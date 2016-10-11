@@ -54,3 +54,22 @@ services:
     image: reminisceme/reverse-geoloc:latest
     volumes_from:
       - data
+
+  elasticsearch:
+    image: elasticsearch:latest
+    volumes_from:
+      - data
+
+  kibana:
+    image: kibana:latest
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - SERVER_HOST=kibana
+    depends_on:
+      - elasticsearch
+
+  logstash:
+    build: logstash/
+    command: logstash -f /config/logstash.conf
+    depends_on:
+      - elasticsearch
