@@ -103,7 +103,7 @@ For any service except the nginx service, proceed as follows:
 2. Put the website in maintenance mode:
 
     ```bash
-    $ docker exec deployment_nginx_1 /maintenance_on.sh  
+    $ docker-compose exec nginx /maintenance_on.sh  
     ```
 3. Stop the service:
 
@@ -123,12 +123,16 @@ For any service except the nginx service, proceed as follows:
 6. Bring the container back up:
 
     ```bash
-    $ docker-compose up $service
+    $ docker-compose up -d $service
     ```
-7. End the maintenance:
+7. Reload nginx configuration:
+    ```bash
+    $ docker-compose exec nginx /etc/init.d/nginx reload 
+    ``` 
+8. End the maintenance:
 
-    ```
-    docker exec deployment_nginx_1 /maintenance_off.sh
+    ```bash
+    docker-compose exec nginx /maintenance_off.sh
     ```
 
 If you need to rebuild the nginx container, there is no use entering maintenance mode so just proceed with the stop/remove/rebuild steps (3. to 6.).
