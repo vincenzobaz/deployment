@@ -42,6 +42,7 @@ services:
     volumes:
       - /var/lib/mongo/data/db:/data/db
       - /misc:/misc
+      - /esdata:/usr/share/elasticsearch/data
     cap_drop:
       - CHOWN
       - DAC_OVERRIDE
