@@ -2,3 +2,4 @@
 .idea
 nginx/server_keys/*
 env/*
+nginx/.htpasswd
