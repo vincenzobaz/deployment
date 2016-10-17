@@ -10,6 +10,7 @@ RUN chmod +x renew_certificate.sh
 # Configuration
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/
+COPY .htpasswd /etc/nginx
 
 # Maintenance on/off
 COPY maintenance_off.html /var/www/maintenance/

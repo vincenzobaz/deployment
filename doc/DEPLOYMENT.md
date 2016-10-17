@@ -37,6 +37,15 @@ You may want to rebuild the images to apply your changes. For this you simply ha
 
 The server will then be able download the images directly from the DockerHub.
 
+### Note on the Nginx Image
+
+At the moment (17.10.2016), the nginx image exposes the kibana logs on port 8080 and requires a password. You need to generate a .htpasswd file in the nginx/ subfolder for it to work:
+
+```bash
+$ sudo sh -c "echo -n 'username:' >> .htpasswd"
+$ sudo sh -c "openssl passwd -apr1 >> /etc/nginx/.htpasswd"
+```
+
 ## Nginx and SSL
 
 ### SSL setup
