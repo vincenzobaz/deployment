@@ -68,6 +68,8 @@ $ docker exec deployment_nginx_1 /renew_certificate.sh
 
 Note that the container name (`deployment_nginx_1`) is the one generate by docker-compose, under a different setup, this name may vary.
 
+On the current setup, this command is executed in a cron job every day at 6:30 A.M. and 3:30 P.M.. The keys are backed up in the root home folder at midnight everyday.
+
 ## Environment
 
 A file, located in `env/prod.sh` on the local machine (relative to the `docker-compose.yml` file location), should be provided with the following information in it:
