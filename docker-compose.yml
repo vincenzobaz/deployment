@@ -3,7 +3,11 @@ services:
   app:
     image: reminisceme/app:latest
     env_file: ./env/prod.sh
+    environment:
+      - APP_LOG_LOCATION=/winston-logs/app.logs
     restart: on-failure:5
+    volumes_from:
+      - data
 
   nginx:
     build: nginx/
@@ -44,6 +48,7 @@ services:
       - /var/lib/mongo/data/db:/data/db
       - /misc:/misc
       - /esdata:/usr/share/elasticsearch/data
+      - /app-logs:/winston-logs
     cap_drop:
       - CHOWN
       - DAC_OVERRIDE
@@ -73,5 +78,8 @@ services:
   logstash:
     build: logstash/
     command: logstash -f /config/logstash.conf
+    volumes_from:
+      - data
     depends_on:
       - elasticsearch
+
