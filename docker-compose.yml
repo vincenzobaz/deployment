@@ -31,6 +31,17 @@ services:
       - SYS_CHROOT
     restart: on-failure:5
 
+  stats:
+    image: reminisceme/stats:latest
+    cap_drop:
+      - CHOWN
+      - MKNOD
+      - DAC_OVERRIDE
+      - FSETID
+      - FOWNER
+      - SYS_CHROOT
+    restart: on-failure:5
+
   mongo:
     image: mongo:3.2.4
     volumes_from:
