@@ -11,3 +11,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get -qq update
 RUN apt-get -qq install -y oracle-java8-installer sbt git
+COPY bootstrap bootstrap
+RUN cd bootstrap && sbt run
+RUN rm -rf bootstrap

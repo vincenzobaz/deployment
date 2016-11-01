@@ -1,0 +1,39 @@
+*.class
+*.log
+
+# sbt specific
+.cache/
+.history/
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+.classpath
+.project
+.settings/
+
+
+
+#IntelliJ-IDE
+.idea
+.idea_modules
+.DS-Store
+.DS_Store
+
+#Python scripts
+
+*__pycache__*
+
+#Deployment
+deployment/*.jar
+deployment/data/*
+/bin/
+.cache-main
+.cache-tests
