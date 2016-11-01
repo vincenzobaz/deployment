@@ -10,6 +10,4 @@ RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.lis
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get -qq update
-RUN apt-get -qq install -y oracle-java8-installer
-RUN apt-get -qq install -y sbt
-
+RUN apt-get -qq install -y oracle-java8-installer sbt git
