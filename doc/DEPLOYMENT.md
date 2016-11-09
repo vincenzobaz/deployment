@@ -126,10 +126,9 @@ For any service except the nginx service, proceed as follows:
     ```bash
     $ docker-compose rm $service
     ```
-5. Remove the image (you can find the hash by running `docker images`) so that it is pulled again:
-
+5. Pull the new image: 
     ```bash
-    $ docker rmi $image_hash
+    $ docker-compose pull $service
     ```
 6. Bring the container back up:
 
