@@ -63,12 +63,12 @@ services:
       - data
 
   elasticsearch:
-    image: elasticsearch:latest
+    image: elasticsearch:2.4.1
     volumes_from:
       - data
 
   kibana:
-    image: kibana:latest
+    image: kibana:4.6.2
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
       - SERVER_HOST=kibana
